@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stylized Portal VFX Documentation</title>
+<style>
+  :root { --bg: #ffffff; --text: #1c1d24; --muted: #5b5f6e; --accent: #5b3fd6; --line: #e3e4ec; --code: #f4f4f8; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.6 "Segoe UI", Arial, sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 28px 80px; }
+  h1 { font-size: 34px; margin: 0 0 4px; }
+  h2 { font-size: 22px; margin: 42px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); }
+  h3 { font-size: 17px; margin: 24px 0 6px; }
+  p, li { color: var(--text); }
+  .sub { color: var(--muted); margin: 0 0 26px; }
+  code, pre { font-family: Consolas, "Courier New", monospace; font-size: 13px; background: var(--code); border-radius: 4px; }
+  code { padding: 1px 5px; }
+  pre { padding: 12px 14px; overflow-x: auto; line-height: 1.45; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 18px; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 7px 9px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; }
+  td:first-child { white-space: nowrap; font-family: Consolas, monospace; font-size: 13px; }
+  .note { border-left: 3px solid var(--accent); padding: 8px 14px; background: #f6f3ff; margin: 14px 0; }
+  nav ol { columns: 2; margin: 0; padding-left: 20px; }
+  @media print { h2 { page-break-after: avoid; } pre, table { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+<main>
+<h1>Stylized Portal VFX</h1>
+<p class="sub">72 Animated Portals · Version 1.0.0 · Unity 2022.3 LTS or newer · Built-in, URP and HDRP</p>
+
+<nav><ol>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#quick">Quick start</a></li>
+  <li><a href="#pipelines">Render pipelines</a></li>
+  <li><a href="#portal">Using a portal</a></li>
+  <li><a href="#teleport">Teleporting</a></li>
+  <li><a href="#gameplay">Gameplay helpers</a></li>
+  <li><a href="#tools">Editor tools</a></li>
+  <li><a href="#extras">Extras</a></li>
+  <li><a href="#performance">Performance</a></li>
+  <li><a href="#demos">Demo scenes</a></li>
+  <li><a href="#components">Component reference</a></li>
+  <li><a href="#scripting">Scripting examples</a></li>
+  <li><a href="#folders">Folder layout</a></li>
+  <li><a href="#faq">Troubleshooting</a></li>
+</ol></nav>
+
+<h2 id="overview">1. Overview</h2>
+<p>Stylized Portal VFX is a library of 72 stylized animated portals with open, idle, teleport and close phases, plus 60 mix-and-match extras
+(ground runes, trails, frames, destination views), 40 sound effects and ready-to-use gameplay components: walk-through
+teleporting with a dissolve, linked portals with a live view, summoning, gravity wells, key-locked doors, wall and
+ceiling mounting, unstable portals and more.</p>
+<ul>
+  <li>72 portal prefabs in 8 themes: Arcane, Dark, Elemental, Sci-Fi, Stylized, Classic, Signature and Utility.</li>
+  <li>Every portal lights its surroundings, has colour presets, quality levels, distance LOD and sound.</li>
+  <li>Custom lightweight shaders that render in Built-in, URP and HDRP with no shader swapping.</li>
+  <li>Portal Browser and Portal Constructor windows for placing, linking and building your own portals.</li>
+  <li>9 demo scenes, including a playable showcase world and a live portal builder.</li>
+</ul>
+
+<h2 id="quick">2. Quick start</h2>
+<ol>
+  <li>Open <b>Tools &gt; Portal VFX &gt; Portal Browser</b>.</li>
+  <li>Pick a portal and press <b>Place</b>. It is dropped in front of the Scene view camera, facing it.</li>
+  <li>Press Play. The portal opens by itself (<code>Open On Enable</code> on <code>PVXPortal</code>).</li>
+  <li>To walk through it, select the portal and your character and use <b>Self-link</b> (step out of the same portal) or select two portals and use <b>Link 2 portals</b>. Then select the character and press <b>Make teleportable</b>.</li>
+</ol>
+<p>Or drag any prefab from <code>Assets/PortalVFX/Prefabs</code> into the scene. A portal's front side faces its <b>-Z</b> (back of the blue arrow); its centre is about 2 m above the pivot.</p>
+
+<h2 id="pipelines">3. Render pipelines</h2>
+<p>All shaders contain Built-in, URP and HDRP passes and are picked automatically. Nothing needs converting.</p>
+<table>
+  <tr><th>Pipeline</th><th>Notes</th></tr>
+  <tr><td>Built-in</td><td>Enable <b>Soft Particles</b> in Quality settings for particles that fade where they touch geometry. Demo cameras use <code>PVXBloom</code> for glow; for your own camera use any bloom (Post Processing Stack v2 works).</td></tr>
+  <tr><td>URP 12+</td><td>Enable <b>Depth Texture</b> on your URP asset for soft particles. Turn on <b>Post Processing</b> on the camera and add Bloom to a Volume for glow. Demo scenes do this automatically at runtime.</td></tr>
+  <tr><td>HDRP 12+</td><td>Portals are unlit and emissive: use a <b>Fixed</b> exposure (EV 0 to 2) or they will be auto-exposed too dark or bright. Demo scenes set this automatically. Wet-floor planar reflections (demo only) are switched off; use an HDRP Planar Reflection Probe instead.</td></tr>
+</table>
+<div class="note">The demo scenes contain no pipeline-specific components. <code>PVXDemoPostFX</code> on the camera creates the right post-processing (PVXBloom on Built-in, a Volume on URP/HDRP) when you press Play.</div>
+
+<h2 id="portal">4. Using a portal</h2>
+<p>Every prefab has a <code>PVXPortal</code> at its root. The quick settings at the top of its inspector change the whole portal at once:</p>
+<table>
+  <tr><th>Setting</th><th>Effect</th></tr>
+  <tr><td>Size</td><td>Uniform scale of the whole portal; particles follow.</td></tr>
+  <tr><td>Speed</td><td>Speed of opening, closing, element motion and particles.</td></tr>
+  <tr><td>Tint / Hue Shift</td><td>Recolour every part, light included.</td></tr>
+  <tr><td>Intensity</td><td>Brightness of every part, light included.</td></tr>
+  <tr><td>Open / Close / Teleport Duration</td><td>Timing of each phase.</td></tr>
+  <tr><td>Events</td><td><code>onOpening</code>, <code>onOpened</code>, <code>onTeleport</code>, <code>onClosing</code>, <code>onClosed</code> UnityEvents.</td></tr>
+</table>
+<p>Call <code>Open()</code>, <code>Close()</code>, <code>Toggle()</code> and <code>Teleport()</code> (a flash for something passing through) from code or UnityEvents. <code>State</code> and <code>OpenAmount</code> tell you where it is.</p>
+<p><b>Colour presets:</b> <code>PVXColorPresets</code> holds the original look and three variants. Click one in the inspector or call <code>Apply(index)</code> / <code>Next()</code>.</p>
+
+<h2 id="teleport">5. Teleporting</h2>
+<ul>
+  <li><code>PVXPortalLink</code> on a portal points at another link (or itself). Anything with <code>PVXTeleportable</code> that walks into it is pulled in, dissolves, and rebuilds in front of the other portal. The portal surface can show a live camera view of the other side.</li>
+  <li><code>PVXTeleportable</code> on a character handles the dissolve (keeps the character's own textures via the <code>PortalVFX/Dissolve</code> shader), sparks and the pull-in. With <b>Use Portal Color</b> on, the dissolve matches the portal's colour.</li>
+  <li>Rigidbodies that fly into a linked portal come out of the other with matching speed (<b>Pass Rigidbodies</b>).</li>
+  <li><code>PVXScreenFX</code> on the camera adds an FOV punch, shake and a swirl in the portal colour while the player passes.</li>
+  <li>Teleport from code: <code>teleportable.TeleportTo(position, rotation, fromPortal, toPortal)</code>.</li>
+</ul>
+
+<h2 id="gameplay">6. Gameplay helpers</h2>
+<table>
+  <tr><th>Component</th><th>What it does</th></tr>
+  <tr><td>PVXPortalTrigger</td><td>Opens a portal without code: when a target comes near, after a delay, repeating, or manually; optional required key, auto-close timer, <code>onLocked</code> / <code>onUnlocked</code> events.</td></tr>
+  <tr><td>PVXKeyPickup / PVXKeyring</td><td>A floating key the player collects; <code>PVXKeyring.Add/Has/Remove</code> from your own code.</td></tr>
+  <tr><td>PVXSummon</td><td><code>Summon()</code> raises a creature out of the portal, <code>Dismiss()</code> dissolves it away.</td></tr>
+  <tr><td>PVXGravityWell</td><td>Pulls nearby rigidbodies into an open portal; they spiral in and vanish (optional respawn).</td></tr>
+  <tr><td>PVXUnstable</td><td>Flicker, brown-outs, shudder, size glitches and energy surges; <code>Collapse()</code> implodes and closes it.</td></tr>
+  <tr><td>PVXMount</td><td>Floor, Wall or Ceiling: hides ground-only parts; <code>PVXMount.Place()</code> snaps a portal onto a surface.</td></tr>
+  <tr><td>PVXProximity</td><td>The portal glows brighter and its particles thicken as a target approaches.</td></tr>
+  <tr><td>PVXDistanceActivator</td><td>Opens portals as the player approaches and closes them when far, for big levels.</td></tr>
+</table>
+
+<h2 id="tools">7. Editor tools</h2>
+<h3>Portal Browser (Tools &gt; Portal VFX &gt; Portal Browser)</h3>
+<ul>
+  <li>Search and filter all portals and extras; <b>Place</b> drops one in front of the Scene camera. With <b>Place on surface</b> on, it is mounted on the floor, wall or ceiling the Scene view is looking at (needs a collider).</li>
+  <li><b>Link 2 portals</b>, <b>Self-link</b>, <b>Make teleportable</b> for the current selection.</li>
+  <li><b>Quality</b>: apply Low / Medium / High to every portal in the scene.</li>
+  <li><b>Performance</b> tab: particle systems, typical and maximum particle counts, materials and lights per portal; export as CSV.</li>
+  <li>Buttons that open each demo scene.</li>
+</ul>
+<h3>Portal Constructor (Tools &gt; Portal VFX &gt; Portal Constructor)</h3>
+<p>Build your own portal from layers: a base portal, a frame, a ground rune, up to two trails and a destination view. Recolour and resize it, press <b>Preview in scene</b>, then <b>Save as prefab</b>. Saved portals go to <code>Assets/PortalVFX/Custom</code> and appear in the Portal Browser.</p>
+
+<h2 id="extras">8. Extras</h2>
+<p><code>Assets/PortalVFX/Extras</code> holds 20 ground runes, 20 trails, 10 frames and 10 destination reveals. Each is a small portal in its own right (opens, idles, closes), so you can place it next to any portal or combine them in the Portal Constructor.</p>
+
+<h2 id="performance">9. Performance</h2>
+<ul>
+  <li><code>PVXQuality</code>: Low (40 % particles, no distortion, no live view), Medium (70 %), High. Set one portal or all with <code>PVXQuality.SetGlobal(level)</code>.</li>
+  <li><b>Distance LOD</b> (on PVXQuality) thins particles and drops distortion as the camera moves away.</li>
+  <li>Fully closed portals hide their renderers and cost nothing to draw.</li>
+  <li><code>PVXPortalLight</code> lights PortalVFX surfaces through shader globals (8 nearest portals), so it adds no real-time lights. The point light inside each portal can be disabled if you do not need it for your own materials.</li>
+  <li>The live view on linked portals renders an extra camera only while the viewer is within <b>Live View Distance</b>.</li>
+</ul>
+
+<h2 id="demos">10. Demo scenes (Assets/PortalVFX/Demo)</h2>
+<table>
+  <tr><th>Scene</th><th>Contents</th></tr>
+  <tr><td>PVX_Demo_Main</td><td>Playable world with every feature in zones; keys 1-9 travel between zones.</td></tr>
+  <tr><td>PVX_Demo_Showcase</td><td>Trailer camera that visits the best portals (Space pause, arrows switch, H titles, B bars).</td></tr>
+  <tr><td>PVX_Demo_Dungeon</td><td>Dark hall: key door, wall/ceiling portals, unstable portal.</td></tr>
+  <tr><td>PVX_Demo_Playground</td><td>All 72 portals along four streets, each walk-through.</td></tr>
+  <tr><td>PVX_Demo_Features</td><td>Guided tour of the components.</td></tr>
+  <tr><td>PVX_Demo / PVX_Demo_Day</td><td>Portal browser at night and in daylight (arrows switch, Space teleport flash, O open/close, C colour).</td></tr>
+  <tr><td>PVX_Demo_Builder</td><td>Play-mode portal builder: mix a base portal, frame, rune, trail and destination with arrows, recolour, resize.</td></tr>
+  <tr><td>PVX_Demo_Teleport</td><td>Two linked portals and a traveller.</td></tr>
+</table>
+<p>Character controls: click to capture the mouse, WASD move, Shift run, mouse look, wheel zoom, E re-open nearest portal, F throw a ball, C recolour, Space flash.</p>
+
+<h2 id="components">11. Component reference</h2>
+<table>
+  <tr><th>Component</th><th>Purpose</th></tr>
+  <tr><td>PVXPortal</td><td>Drives the phases and the look of one portal.</td></tr>
+  <tr><td>PVXElement / PVXFxGroup</td><td>Animated part of a portal / particle set played in a phase (used inside the prefabs).</td></tr>
+  <tr><td>PVXColorPresets</td><td>Colour variants.</td></tr>
+  <tr><td>PVXQuality</td><td>Quality level and distance LOD.</td></tr>
+  <tr><td>PVXPortalLight</td><td>Portal lights nearby PortalVFX surfaces in every pipeline.</td></tr>
+  <tr><td>PVXPortalAudio</td><td>Open, idle loop, teleport and close sounds.</td></tr>
+  <tr><td>PVXPortalLink</td><td>Linked teleport, live view, rigidbody pass-through, <code>onTravel</code> event.</td></tr>
+  <tr><td>PVXTeleportable</td><td>Dissolve teleport for characters and objects.</td></tr>
+  <tr><td>PVXScreenFX</td><td>Camera effect while the player teleports.</td></tr>
+  <tr><td>PVXPortalTrigger, PVXKeyPickup</td><td>Rule-based opening, keys.</td></tr>
+  <tr><td>PVXSummon, PVXGravityWell, PVXUnstable, PVXMount, PVXProximity, PVXDistanceActivator</td><td>See Gameplay helpers.</td></tr>
+  <tr><td>PVXPlanarReflection</td><td>Wet-floor mirror for PortalVFX/Mesh floors with Wet Floor on (Built-in, URP).</td></tr>
+  <tr><td>PVXBloom, PVXDemoPostFX</td><td>Demo post-processing.</td></tr>
+  <tr><td>PVXDemo*</td><td>Demo-only helpers (character, cameras, loops); not needed in your game.</td></tr>
+</table>
+
+<h2 id="scripting">12. Scripting examples</h2>
+<pre>using PortalVFX;
+using UnityEngine;
+
+public class OpenOnLever : MonoBehaviour
+{
+    public PVXPortal portal;
+
+    public void Pull()
+    {
+        portal.onOpened.AddListener(() =&gt; Debug.Log("Portal is open"));
+        portal.Open();
+    }
+}</pre>
+<pre>// Link two portals at runtime and teleport the player.
+var a = portalA.gameObject.AddComponent&lt;PVXPortalLink&gt;();
+var b = portalB.gameObject.AddComponent&lt;PVXPortalLink&gt;();
+a.other = b; b.other = a;
+player.GetComponent&lt;PVXTeleportable&gt;().TeleportTo(target.position, target.rotation, portalA, portalB);</pre>
+<pre>// Whole-game quality and a colour variant.
+PVXQuality.SetGlobal(PVXQualityLevel.Medium);
+portal.GetComponent&lt;PVXColorPresets&gt;().Apply(2);
+portal.GetComponent&lt;PVXUnstable&gt;().Collapse();</pre>
+
+<h2 id="folders">13. Folder layout</h2>
+<table>
+  <tr><th>Folder</th><th>Contents</th></tr>
+  <tr><td>Prefabs</td><td>72 portals in theme folders.</td></tr>
+  <tr><td>Extras</td><td>GroundRunes, Trails, Frames, Reveals.</td></tr>
+  <tr><td>Demo</td><td>Demo scenes and their materials.</td></tr>
+  <tr><td>Runtime</td><td>Components (URP / HDRP sub-folders compile only when that pipeline is installed).</td></tr>
+  <tr><td>Editor</td><td>Portal Browser, Portal Constructor, inspectors.</td></tr>
+  <tr><td>Shaders, Materials, Textures, Meshes, Audio</td><td>Shared assets used by the prefabs.</td></tr>
+</table>
+<p>You can delete the <code>Demo</code> folder from a shipping game. If you use <code>PVXTeleportable</code>, first copy <code>Demo/PVX_Dissolve.mat</code> elsewhere and assign it, so the dissolve shader is included in builds.</p>
+
+<h2 id="faq">14. Troubleshooting</h2>
+<ul>
+  <li><b>Portals look flat or have no glow</b>: add bloom (URP/HDRP Volume, Post Processing v2 or PVXBloom on Built-in) and use an HDR camera.</li>
+  <li><b>Particles show hard edges against the floor</b>: enable Soft Particles (Built-in) or Depth Texture (URP).</li>
+  <li><b>Too dark or too bright in HDRP</b>: use a Fixed exposure around EV 0-2.</li>
+  <li><b>Character does not teleport</b>: it needs <code>PVXTeleportable</code> and a collider; the portal needs <code>PVXPortalLink</code> with <b>Other</b> set and must be open.</li>
+  <li><b>Pink materials</b>: re-import the Shaders folder (right-click &gt; Reimport).</li>
+</ul>
+</main>
+</body>
+</html>

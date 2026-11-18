@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fb84872617952ec4795624d96e6d03f8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Materials/07_Signature/PVX_72_VoidMaw/MawGlow.mat
+  uploadId: 1035978

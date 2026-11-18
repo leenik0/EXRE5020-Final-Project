@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 87b78b51e7bf4084eb08765882466ab7
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Shaders/PVX_Common.cginc
+  uploadId: 1035978

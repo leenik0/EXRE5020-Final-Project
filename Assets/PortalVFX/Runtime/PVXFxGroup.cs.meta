@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b1e1da37719706940856e915cdde90f7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Runtime/PVXFxGroup.cs
+  uploadId: 1035978

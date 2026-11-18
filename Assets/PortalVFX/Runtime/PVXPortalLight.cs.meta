@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: dcf0d789f87a4fdbb9aa8f141692addf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Runtime/PVXPortalLight.cs
+  uploadId: 1035978

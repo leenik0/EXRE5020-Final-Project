@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8a8eca08e08f5fa43be9b4e73e01bcf6
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Shaders/PVX_Ring.cginc
+  uploadId: 1035978

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 833db6d888d9aa942b83add24d37c87f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Materials/08_Utility/PVX_70_MiniPortal/GroundLight.mat
+  uploadId: 1035978

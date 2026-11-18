@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 725b74c5907f1324a857bdf4c72abe05
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Materials/03_Elemental/PVX_23_TempestGate/ChargedGroundAura.mat
+  uploadId: 1035978

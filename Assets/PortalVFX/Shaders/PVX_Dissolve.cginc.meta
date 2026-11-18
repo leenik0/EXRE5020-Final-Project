@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ad15b811685cd504e953f554a2d08163
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Shaders/PVX_Dissolve.cginc
+  uploadId: 1035978

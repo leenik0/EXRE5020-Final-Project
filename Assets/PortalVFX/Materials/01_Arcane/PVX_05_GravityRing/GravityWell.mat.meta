@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 95babe1a57c1c9547b50f9be4bac1e78
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Materials/01_Arcane/PVX_05_GravityRing/GravityWell.mat
+  uploadId: 1035978

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 070e91260c9843b47873ab198eed69f0
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Runtime/PortalVFX.Runtime.asmdef
+  uploadId: 1035978

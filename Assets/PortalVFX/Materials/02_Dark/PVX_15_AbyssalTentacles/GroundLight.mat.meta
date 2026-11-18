@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eef7ec9e08fb40c41b21e1f8c6035b27
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Materials/02_Dark/PVX_15_AbyssalTentacles/GroundLight.mat
+  uploadId: 1035978

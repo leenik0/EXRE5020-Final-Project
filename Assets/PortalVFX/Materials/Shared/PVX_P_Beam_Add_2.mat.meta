@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: feb50bd4435026249a59d30d16fcd5cd
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Materials/Shared/PVX_P_Beam_Add_2.mat
+  uploadId: 1035978

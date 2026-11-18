@@ -1,0 +1,26 @@
+{
+    "name": "PortalVFX.Runtime.HDRP",
+    "rootNamespace": "PortalVFX",
+    "references": [
+        "PortalVFX.Runtime",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.HighDefinition.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "PVX_HDRP"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.high-definition",
+            "expression": "12.0.0",
+            "define": "PVX_HDRP"
+        }
+    ],
+    "noEngineReferences": false
+}

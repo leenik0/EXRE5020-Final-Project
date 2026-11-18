@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8aa93f48542f66546b3e918bc11f859b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Materials/02_Dark/PVX_17_ShadowSplit/Distortion.mat
+  uploadId: 1035978

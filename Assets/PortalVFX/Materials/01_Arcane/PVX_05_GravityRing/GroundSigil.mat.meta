@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e7c0c8d2234507f4c8180c5f01d7b35e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423832
+  packageName: "Stylized Portal VFX \u2013 72 Animated Portals"
+  packageVersion: 1.0
+  assetPath: Assets/PortalVFX/Materials/01_Arcane/PVX_05_GravityRing/GroundSigil.mat
+  uploadId: 1035978
