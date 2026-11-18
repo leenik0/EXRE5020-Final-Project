@@ -185,7 +185,7 @@ MonoBehaviour:
       Value: 0
     MaxX:
       Constrain: 1
-      Value: 0.15
+      Value: 0.3
     MinY:
       Constrain: 1
       Value: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 8037426273664326875}
   - component: {fileID: 2798718549795740560}
   m_Layer: 0
-  m_Name: '[BuildingBlock] HandGrabInstallationRoutine'
+  m_Name: '[BuildingBlock] HandGrabInstallationRoutine_L'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: f98e3bdc-741b-43ef-8856-ae319d150ce0
+  instanceId: 9870df6c-c2c9-4b6e-a2a4-8e78f1104682
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -336,6 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3537950918014040202}
+  - component: {fileID: 6600739072107610326}
   m_Layer: 0
   m_Name: CrackOpenPrototype
   m_TagString: Untagged
@@ -360,6 +361,24 @@ Transform:
   - {fileID: 5262972904763794480}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6600739072107610326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2999445646774287700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ff981cbf7594b449755309baa54cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CrackOpening
+  leftEdge: {fileID: 5313412800920187091}
+  rightEdge: {fileID: 5262972904763794480}
+  leftGrabInteraction: {fileID: 1800577379537880221}
+  rightGrabInteraction: {fileID: 3360179579646108945}
+  maxTravelDistance: 0.3
+  openThreshold: 0.9
 --- !u!1 &3360179579646108945
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +392,7 @@ GameObject:
   - component: {fileID: 4373404549837407155}
   - component: {fileID: 8544347612390389077}
   m_Layer: 0
-  m_Name: '[BuildingBlock] HandGrabInstallationRoutine'
+  m_Name: '[BuildingBlock] HandGrabInstallationRoutine_R'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -407,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: c17c055d-a0d7-4395-aae3-24c6fd9b96cf
+  instanceId: f559fc76-1aa9-4048-8309-23e9e36aa2dc
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -658,7 +677,7 @@ MonoBehaviour:
     ConstraintsAreRelative: 1
     MinX:
       Constrain: 1
-      Value: -0.15
+      Value: -0.3
     MaxX:
       Constrain: 1
       Value: 0
