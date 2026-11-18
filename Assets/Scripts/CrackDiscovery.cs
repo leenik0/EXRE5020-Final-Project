@@ -3,9 +3,9 @@ using UnityEngine;
 public class CrackDiscovery : MonoBehaviour
 {
 
-    [SerializeField] private Transform playerHead;
-    [SerializeField] private float revealDistance = 1.5f;
-    [SerializeField] private float fadeDuration = 1.5f;
+    public Transform playerHead;
+    public float revealDistance = 1.5f;
+    public float fadeDuration = 1.5f;
 
     private MeshRenderer cubeRenderer;
     private bool isRevealed = false;
